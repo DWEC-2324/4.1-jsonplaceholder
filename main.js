@@ -81,10 +81,11 @@ async function main() {
     }
 
     async function modificarDatos(idTare) {
+        const nuevoEstado = !idTare.completed;
         const response = await fetch('https://jsonplaceholder.typicode.com/todos/' + idTare, {
             method: 'PATCH',
             body: JSON.stringify({
-                completed: false,
+                completed: nuevoEstado,
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
